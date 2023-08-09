@@ -9,7 +9,6 @@ const preReq = [
   [4, 5],
 ];
 var canFinish = function (numCourses, prerequisites) {
-  debugger;
   const adjList = new Array(numCourses).fill(0).map(() => []);
   for (let i = 0; i < prerequisites.length; i++) {
     const coursePair = prerequisites[i];
