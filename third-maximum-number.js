@@ -1,5 +1,4 @@
 var thirdMax = function (nums) {
-  debugger;
   let left = 0,
     right = nums.length - 1;
   let uniqueNums = {};

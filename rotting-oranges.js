@@ -8,7 +8,6 @@ const directions = [
 ];
 
 var orangesRotting = function (grid) {
-  debugger;
   let minutes = 0;
   let freshOranges = 0,
     queue = [],
