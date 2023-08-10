@@ -118,4 +118,45 @@ let times = [
 ];
 let n = 4,
   k = 2;
-console.log(networkDelayTime(times, n, k));
+
+const t = [
+    [1, 2, 9],
+    [1, 4, 2],
+    [2, 5, 1],
+    [4, 2, 4],
+    [4, 5, 6],
+    [3, 2, 3],
+    [5, 3, 7],
+    [3, 1, 5],
+  ],
+  num = 5,
+  strt = 1;
+console.log(networkDelayTime(t, num, strt));
+
+// Bellman-Ford Implementation
+
+function belFordNetDel(times, n, k) {
+  const weights = new Array(n).fill(Infinity);
+  const edgesArr = [];
+  for (let i = 0; i < times.length; i++) {
+    const element = times[i];
+    edgesArr.push([element[0], element[1]]);
+  }
+  weights[k - 1] = 0;
+  for (let i = 0; i < n - 1; i++) {
+    for (let q = 0; q < edgesArr.length; q++) {
+      const edge = edgesArr[q];
+      const source = edgesArr[q][0];
+      const directed = edgesArr[q][1];
+      if (weights[source - 1] < Infinity) {
+        weights[directed - 1] = Math.min(
+          weights[directed - 1],
+          times[q][2] + weights[source - 1]
+        );
+      }
+    }
+  }
+  const ans = Math.max(...weights);
+  return ans == Infinity ? -1 : ans;
+}
+console.log(belFordNetDel(t, num, strt));
