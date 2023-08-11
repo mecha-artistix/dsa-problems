@@ -29,3 +29,21 @@ function minCostMemo(i, cost, dp) {
   return dp[i];
 }
 console.log(minCostClimbMemo(cost));
+
+function minCostBotUp(cost) {
+  if (cost.length == 0) return 0;
+  if (cost.length == 1) return cost[0];
+  let one = cost[0],
+    two = cost[1];
+
+  for (let i = 2; i < cost.length; i++) {
+    let curr = cost[i] + Math.min(one, two);
+    one = two;
+    two = curr;
+  }
+  return Math.min(one, two);
+}
+console.log(
+  "minCostBotUp - ",
+  minCostBotUp([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])
+);
