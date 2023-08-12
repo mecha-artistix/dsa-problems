@@ -2,8 +2,11 @@
  * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function (s) {
-  s = s.replace(/[^a-z0-9]+/gi, "").toLowerCase();
+var isPalindrome = function (n) {
+  debugger;
+  // s = s.replace(/[^a-z0-9]+/gi, "").toLowerCase();
+  const s = Array.from(String(n), Number);
+
   let left = 0;
   let right = s.length - 1;
   while (left < right) {
@@ -13,3 +16,4 @@ var isPalindrome = function (s) {
   }
   return true;
 };
+console.log(isPalindrome(-121));
