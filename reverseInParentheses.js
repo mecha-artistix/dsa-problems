@@ -57,3 +57,34 @@ function solution(inputString) {
   return str;
 }
 // console.log(solution(st));
+
+function solutionB(forest, bird) {
+  let p = 0;
+  let stickLen = 0;
+  let arr = [];
+
+  let right = bird + 1;
+  let left = bird - 1;
+  while (right < forest.length && stickLen <= 100) {
+    if (forest[right] > 0) {
+      arr.push(right);
+      stickLen += forest[right];
+      break;
+    }
+    right++;
+  }
+  while (left < 0 && stickLen <= 100) {
+    if (forest[left] > 0) {
+      arr.push(left);
+      stickLen += forest[left];
+      break;
+    }
+    left--;
+  }
+
+  return arr;
+}
+
+let forest = [54, 14, 3, 0, 23, 15],
+  brd = 3;
+console.log(solutionB(forest, brd));
