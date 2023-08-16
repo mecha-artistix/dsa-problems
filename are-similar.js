@@ -22,3 +22,20 @@ let a = [1, 2, 1, 2],
   b = [2, 2, 1, 1];
 
 console.log(solution(a, b));
+
+function solution2(a, b) {
+  if (a.toString() === b.toString()) return true;
+  let p = [],
+    q = [];
+  for (i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      p.push(a[i]);
+      q.push(b[i]);
+    }
+  }
+  p.reverse();
+  if (p.length === 2 && p.toString() === q.toString()) {
+    return true;
+  }
+  return false;
+}
