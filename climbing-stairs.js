@@ -1,6 +1,4 @@
 var climbStairs = function (n) {
-  debugger;
-
   let one = 1,
     two = 1;
   for (let i = 0; i < n - 1; i++) {

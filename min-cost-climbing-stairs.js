@@ -1,4 +1,6 @@
 // Recusrisive solution Top-Down Dynamic Programming
+let cost = [20, 15, 30, 5],
+  cost2 = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1];
 
 function minCost(i, cost) {
   if (i < 0) return 0;
@@ -10,8 +12,7 @@ var minCostClimbingStairs = function (cost) {
   return Math.min(minCost(n - 1, cost), minCost(n - 2, cost));
 };
 
-let cost = [20, 15, 30, 5];
-console.log(minCostClimbingStairs(cost));
+console.log(minCostClimbingStairs(cost2));
 
 function minCostClimbMemo(cost) {
   const n = cost.length;
@@ -28,7 +29,7 @@ function minCostMemo(i, cost, dp) {
     Math.min(minCostMemo(i - 1, cost, dp), minCostMemo(i - 2, cost, dp));
   return dp[i];
 }
-console.log(minCostClimbMemo(cost));
+console.log(minCostClimbMemo(cost2));
 
 function minCostBotUp(cost) {
   if (cost.length == 0) return 0;
@@ -43,7 +44,4 @@ function minCostBotUp(cost) {
   }
   return Math.min(one, two);
 }
-console.log(
-  "minCostBotUp - ",
-  minCostBotUp([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])
-);
+console.log("minCostBotUp - ", minCostBotUp(cost2));
